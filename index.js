@@ -10,6 +10,8 @@ const chalk = require('chalk');
 // Method #3
 const { lstat } = fs.promises;
 
+// console.log(process.argv);
+
 fs.readdir(process.cwd(), async (err, filenames) => {
   if (err) {
     // throw new Error(err)
