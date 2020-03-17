@@ -21,6 +21,12 @@ fs.readdir(process.cwd(), async (err, filenames) => {
 
   const allStats = await Promise.all(statPromieses);
 
+  for (let stats of allStats) {
+    const index = allStats.indexOf(stats);
+
+    console.log(filenames[index], stats.isFile());
+  }
+
   // for (let filename of filenames) {
   //   try {
   //     const stats = await lstat(filename);
