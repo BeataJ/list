@@ -15,15 +15,19 @@ fs.readdir(process.cwd(), async (err, filenames) => {
     console.log(err);
   }
 
-  for (let filename of filenames) {
-    try {
-      const stats = await lstat(filename);
+  const statPromieses = filenames.map(filename => {
+    return lstat(filename);
+  });
 
-      console.log(filename, stats.isFile());
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  // for (let filename of filenames) {
+  //   try {
+  //     const stats = await lstat(filename);
+
+  //     console.log(filename, stats.isFile());
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 });
 
 // Method #1
