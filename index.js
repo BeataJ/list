@@ -12,6 +12,8 @@ const { lstat } = fs.promises;
 
 // console.log(process.argv);
 
+const targetDir = process.argv[2] || process.cwd();
+
 fs.readdir(process.cwd(), async (err, filenames) => {
   if (err) {
     // throw new Error(err)
