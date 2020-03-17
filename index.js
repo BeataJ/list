@@ -3,11 +3,11 @@
 const fs = require('fs');
 const util = require('util');
 
-// Metod #2
-// const lstat = util.promisify(fs.lstat);
+// Method #2
+const lstat = util.promisify(fs.lstat);
 
 // Method #3
-const { lstat } = fs.promises;
+// const { lstat } = fs.promises;
 
 fs.readdir(process.cwd(), async (err, filenames) => {
   if (err) {
