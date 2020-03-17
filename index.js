@@ -19,6 +19,8 @@ fs.readdir(process.cwd(), async (err, filenames) => {
     return lstat(filename);
   });
 
+  const allStats = await Promise.all(statPromieses);
+
   // for (let filename of filenames) {
   //   try {
   //     const stats = await lstat(filename);
