@@ -7,7 +7,7 @@ const util = require('util');
 // const lstat = util.promisify(fs.lstat);
 
 // Method #3
-// const { lstat } = fs.promises;
+const { lstat } = fs.promises;
 
 fs.readdir(process.cwd(), async (err, filenames) => {
   if (err) {
@@ -27,14 +27,14 @@ fs.readdir(process.cwd(), async (err, filenames) => {
 });
 
 // Method #1
-const lstat = filename => {
-  return new Promise((resolve, reject) => {
-    fs.lstat(filename, (err, stats) => {
-      if (err) {
-        reject(err);
-      }
+// const lstat = filename => {
+//   return new Promise((resolve, reject) => {
+//     fs.lstat(filename, (err, stats) => {
+//       if (err) {
+//         reject(err);
+//       }
 
-      resolve(stats);
-    });
-  });
-};
+//       resolve(stats);
+//     });
+//   });
+// };
