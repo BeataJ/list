@@ -25,7 +25,11 @@ fs.readdir(process.cwd(), async (err, filenames) => {
   for (let stats of allStats) {
     const index = allStats.indexOf(stats);
 
-    console.log(filenames[index], stats.isFile());
+    if (stats.isFile()) {
+      console.log(chalk.blue(filenames[index]));
+    } else {
+      console.log(chalk.bold.red(filenames[index]));
+    }
   }
 
   // for (let filename of filenames) {
