@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+const util = require('util');
+
+const lstat = util.promisify(fs.lstat);
 
 fs.readdir(process.cwd(), (err, filenames) => {
   if (err) {
@@ -9,14 +12,14 @@ fs.readdir(process.cwd(), (err, filenames) => {
   }
 });
 
-const lstat = filename => {
-  return new Promise((resolve, reject) => {
-    fs.lstat(filename, (err, stats) => {
-      if (err) {
-        reject(err);
-      }
+// const lstat = filename => {
+//   return new Promise((resolve, reject) => {
+//     fs.lstat(filename, (err, stats) => {
+//       if (err) {
+//         reject(err);
+//       }
 
-      resolve(stats);
-    });
-  });
-};
+//       resolve(stats);
+//     });
+//   });
+// };
