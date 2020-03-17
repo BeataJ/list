@@ -18,7 +18,17 @@ fs.readdir(process.cwd(), (err, filenames) => {
         console.log(err);
       }
 
-      console.log(filename, stats.isFile());
+      allStats[index] = stats;
+
+      const ready = allStats.every(stats => {
+        return stats;
+      });
+
+      if (ready) {
+        allStats.forEach((stats, index) => {
+          console.log(filenames[index], stats.isFile());
+        });
+      }
     });
   }
 });
