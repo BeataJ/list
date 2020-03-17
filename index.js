@@ -8,8 +8,11 @@ fs.readdir(process.cwd(), (err, filenames) => {
     console.log(err);
   }
 
-  // Bad Code Here!!!
+  const allStats = Array(filenames.length).fill(null);
+
   for (let filename of filenames) {
+    const index = filenames.indexOf(filename);
+
     fs.lstat(filename, (err, stats) => {
       if (err) {
         console.log(err);
